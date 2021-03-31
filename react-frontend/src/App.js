@@ -5,16 +5,20 @@ import styles from "./App.module.css";
 import { fetchData } from "./api";
 
 class App extends React.Component {
+  state = {
+    data: {},
+  };
+
   async componentDidMount() {
-    const data = await fetchData();
-    console.log(data);
+    const fetchedData = await fetchData();
+    this.setState({ data: fetchedData });
   }
 
   render() {
     return (
       <div className={styles.container}>
         <h1>Covid App</h1>
-        <Card />
+        <Card data={this.state.data} />
         <Chart />
         <CountryPicker />
       </div>
