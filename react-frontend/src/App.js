@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Card, Chart, CountryPicker } from "./components";
+import { Cards, Chart, CountryPicker } from "./components";
 import styles from "./App.module.css";
 import { fetchData } from "./api";
 
@@ -17,10 +17,9 @@ class App extends React.Component {
   render() {
     return (
       <div className={styles.container}>
-        <h1>Covid App</h1>
-        <Card data={this.state.data} />
-        <Chart />
+        <Cards data={this.state.data} />
         <CountryPicker />
+        <Chart />
       </div>
     );
   }
